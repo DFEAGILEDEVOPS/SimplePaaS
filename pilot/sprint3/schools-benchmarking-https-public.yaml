@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Route
+metadata:
+  name: appname-https-public
+  namespace: simon
+  selfLink: /oapi/v1/namespaces/simon/routes/appname-https-public
+  uid: 2a6ae1c7-bc2c-11e7-87f4-000d3ab7e5f4
+  resourceVersion: '1041381'
+  creationTimestamp: '2017-10-28T22:05:53Z'
+spec:
+  host: appname.demo.dfe.secnix.co.uk
+  to:
+    kind: Service
+    name: appname
+    weight: 100
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: Allow
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: appname.demo.dfe.secnix.co.uk
+      routerName: router
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2017-10-28T22:05:53Z'
+      wildcardPolicy: None
+
