@@ -1,0 +1,11 @@
+  {"source":
+    type: Binary
+    binary: {}
+  strategy:
+    type: Docker
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: dotnet/dotnet-20-runtime-rhel7
+      dockerfilePath: Dockerfile
+  }

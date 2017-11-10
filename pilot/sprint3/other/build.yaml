@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: "Template"
+metadata:
+  name: dotnet2-deploy-template
+  annotations:
+    description: "Template for deploying dotnet core from published releases."
+    tags: "infrastructure"
+labels:
+  logging-infra: development
+  provider: openshift
+  component: development
+objects:
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    labels:
+      build: ${APP_NAME}
+    name: ${APP_NAME}
+  spec: {}
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    labels:
+      app: ${APP_NAME}
+    name: ${APP_NAME}
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${APP_NAME}:latest
+    resources: {}
+    source:
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+    triggers:
+    - type: ConfigChange
+    - type: ImageChange
+parameters:
+-
+  description: 'The Project Name'
+  name: PROJECT_NAME
+  value: projectname
+-
+  description: 'The App Name'
+  name: APP_NAME
+  value: appname

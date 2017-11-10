@@ -1,0 +1,3902 @@
+apiVersion: v1
+kind: Template
+metadata:
+  creationTimestamp: null
+  name: my_template.json
+objects:
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    creationTimestamp: null
+    labels:
+      app: appname
+      component: development
+      logging-infra: development
+      provider: openshift
+    name: appname
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+    triggers:
+    - type: ConfigChange
+  status:
+    lastVersion: 0
+- apiVersion: v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftWebConsole
+    creationTimestamp: null
+    labels:
+      app: daniel
+    name: daniel
+  spec:
+    output:
+      to:
+        kind: ImageStreamTag
+        name: daniel:latest
+    postCommit: {}
+    resources: {}
+    source:
+      git:
+        ref: master
+        uri: https://github.com/the-daniel-rothig/govuk-blank.git
+      secrets: null
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: dotnet:2.0
+          namespace: openshift
+      type: Source
+    triggers:
+    - generic:
+        secret: bb6d78583820b367
+      type: Generic
+    - github:
+        secret: dd07255f01950d2f
+      type: GitHub
+    - imageChange: {}
+      type: ImageChange
+    - type: ConfigChange
+  status:
+    lastVersion: 0
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "10"
+      openshift.io/build.pod-name: appname-10-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-10
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "11"
+      openshift.io/build.pod-name: appname-11-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-11
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "12"
+      openshift.io/build.pod-name: appname-12-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-12
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "13"
+      openshift.io/build.pod-name: appname-13-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-13
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "14"
+      openshift.io/build.pod-name: appname-14-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-14
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "15"
+      openshift.io/build.pod-name: appname-15-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-15
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "16"
+      openshift.io/build.pod-name: appname-16-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-16
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "17"
+      openshift.io/build.pod-name: appname-17-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-17
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "18"
+      openshift.io/build.pod-name: appname-18-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-18
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "19"
+      openshift.io/build.pod-name: appname-19-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-19
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "2"
+      openshift.io/build.pod-name: appname-2-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-2
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "20"
+      openshift.io/build.pod-name: appname-20-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-20
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "21"
+      openshift.io/build.pod-name: appname-21-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-21
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "22"
+      openshift.io/build.pod-name: appname-22-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-22
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "23"
+      openshift.io/build.pod-name: appname-23-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-23
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "24"
+      openshift.io/build.pod-name: appname-24-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-24
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "25"
+      openshift.io/build.pod-name: appname-25-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-25
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "4"
+      openshift.io/build.pod-name: appname-4-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-4
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "5"
+      openshift.io/build.pod-name: appname-5-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-5
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    cancelled: true
+    config:
+      name: appname
+    message: The build was cancelled by the user.
+    phase: New
+    reason: CancelledBuild
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "6"
+      openshift.io/build.pod-name: appname-6-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-6
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "7"
+      openshift.io/build.pod-name: appname-7-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-7
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "8"
+      openshift.io/build.pod-name: appname-8-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-8
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: appname
+      openshift.io/build.number: "9"
+      openshift.io/build.pod-name: appname-9-build
+    creationTimestamp: null
+    labels:
+      app: appname
+      buildconfig: appname
+      component: development
+      logging-infra: development
+      openshift.io/build-config.name: appname
+      openshift.io/build.start-policy: Serial
+      provider: openshift
+    name: appname-9
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: appname:latest
+    postCommit: {}
+    resources: {}
+    serviceAccount: builder
+    source:
+      binary: {}
+      secrets: null
+      type: Binary
+    strategy:
+      dockerStrategy:
+        dockerfilePath: Dockerfile
+        from:
+          kind: DockerImage
+          name: dotnet/dotnet-20-runtime-rhel7
+      type: Docker
+  status:
+    config:
+      name: appname
+    phase: New
+- apiVersion: v1
+  kind: Build
+  metadata:
+    annotations:
+      openshift.io/build-config.name: daniel
+      openshift.io/build.number: "1"
+      openshift.io/build.pod-name: daniel-1-build
+    creationTimestamp: null
+    labels:
+      app: daniel
+      buildconfig: daniel
+      openshift.io/build-config.name: daniel
+      openshift.io/build.start-policy: Serial
+    name: daniel-1
+  spec:
+    output:
+      pushSecret:
+        name: builder-dockercfg-4twpn
+      to:
+        kind: ImageStreamTag
+        name: daniel:latest
+    postCommit: {}
+    resources: {}
+    revision:
+      git:
+        author:
+          email: daniel.rothig@gmail.com
+          name: the-daniel-rothig
+        commit: 04d03597225c14d1296241da701149b6dc2738ff
+        committer:
+          email: daniel.rothig@gmail.com
+          name: the-daniel-rothig
+        message: some changes
+      type: Git
+    serviceAccount: builder
+    source:
+      git:
+        ref: master
+        uri: https://github.com/the-daniel-rothig/govuk-blank.git
+      secrets: null
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: DockerImage
+          name: registry.access.redhat.com/dotnet/dotnet-20-rhel7@sha256:0100293f7fb99c9158cb8ed77fd3ff913f45e8cc528f081986513bf434bad592
+      type: Source
+  status:
+    config:
+      name: daniel
+    phase: New
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    creationTimestamp: null
+    generation: 1
+    labels:
+      build: appname
+      component: development
+      logging-infra: development
+      provider: openshift
+    name: appname
+  spec:
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: 172.30.246.143:5000/simon/appname:latest
+      generation: null
+      importPolicy: {}
+      name: latest
+  status:
+    dockerImageRepository: ""
+- apiVersion: v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftWebConsole
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: daniel
+    name: daniel
+  spec:
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: 172.30.246.143:5000/simon/daniel:latest
+      generation: null
+      importPolicy: {}
+      name: latest
+  status:
+    dockerImageRepository: ""
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftWebConsole
+    creationTimestamp: null
+    generation: 19
+    labels:
+      app: appname
+    name: appname
+  spec:
+    replicas: 1
+    selector:
+      app: appname
+      deploymentconfig: appname
+    strategy:
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        annotations:
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:d51b7622ccfe74618077dc443c9fe27b3faf7c14fffbafbc3e26b9e801e9b1c6
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - appname
+        from:
+          kind: ImageStreamTag
+          name: appname:latest
+          namespace: simon
+      type: ImageChange
+  status: {}
+- apiVersion: v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftWebConsole
+    creationTimestamp: null
+    generation: 2
+    labels:
+      app: daniel
+    name: daniel
+  spec:
+    replicas: 1
+    selector:
+      deploymentconfig: daniel
+    strategy:
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: daniel
+          deploymentconfig: daniel
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/daniel@sha256:bafee3dcbf3894ad94aad4b0c9b3a5e7f261040ea9c6e866dc8184088f26b4b8
+          imagePullPolicy: Always
+          name: daniel
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+    test: false
+    triggers:
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - daniel
+        from:
+          kind: ImageStreamTag
+          name: daniel:latest
+          namespace: simon
+      type: ImageChange
+    - type: ConfigChange
+  status: {}
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1041163","generation":2,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:4ffd5f50ee3f10852315ec540f327539904f406204c05ffebde8121852d367cb"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:4ffd5f50ee3f10852315ec540f327539904f406204c05ffebde8121852d367cb","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2017-10-28T22:02:42Z","lastTransitionTime":"2017-10-28T22:02:42Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-1
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-1
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-1
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-1
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:4ffd5f50ee3f10852315ec540f327539904f406204c05ffebde8121852d367cb
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-10-deploy
+      openshift.io/deployment-config.latest-version: "10"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1119197","generation":11,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:db60781f89f582ad5d62d6b89af0e23a460d962cbd94f5df3bd1046e511c3bc5"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:db60781f89f582ad5d62d6b89af0e23a460d962cbd94f5df3bd1046e511c3bc5","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":10,"observedGeneration":10,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T14:54:21Z","lastTransitionTime":"2017-10-29T14:54:21Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T17:04:30Z","lastTransitionTime":"2017-10-29T17:04:28Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-9\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-10
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-10
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "10"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-10
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-10
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:db60781f89f582ad5d62d6b89af0e23a460d962cbd94f5df3bd1046e511c3bc5
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-11-deploy
+      openshift.io/deployment-config.latest-version: "11"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1119634","generation":12,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:a994178833ee5ce63efe1f6f39869a3234048c3dc039b670b8f0c9289a31924a"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:a994178833ee5ce63efe1f6f39869a3234048c3dc039b670b8f0c9289a31924a","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":11,"observedGeneration":11,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T14:54:21Z","lastTransitionTime":"2017-10-29T14:54:21Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T21:09:34Z","lastTransitionTime":"2017-10-29T21:09:32Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-10\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-11
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-11
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "11"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-11
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-11
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:a994178833ee5ce63efe1f6f39869a3234048c3dc039b670b8f0c9289a31924a
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-12-deploy
+      openshift.io/deployment-config.latest-version: "12"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1121122","generation":13,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:93e5aa14ef4bc2ac61d67585c78f0dacac13a98126583b840806c8afc0690c02"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:93e5aa14ef4bc2ac61d67585c78f0dacac13a98126583b840806c8afc0690c02","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":12,"observedGeneration":12,"replicas":1,"updatedReplicas":1,"availableReplicas":0,"unavailableReplicas":1,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T21:16:12Z","lastTransitionTime":"2017-10-29T21:16:09Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-11\" successfully rolled out"},{"type":"Available","status":"False","lastUpdateTime":"2017-10-29T21:22:13Z","lastTransitionTime":"2017-10-29T21:22:13Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-12
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-12
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "12"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-12
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-12
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:93e5aa14ef4bc2ac61d67585c78f0dacac13a98126583b840806c8afc0690c02
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-13-deploy
+      openshift.io/deployment-config.latest-version: "13"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1121830","generation":14,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:f3c015f9ea8834c703a0ef78b21df0d737d4e36e4be9f637ab9e51f2a637f639"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:f3c015f9ea8834c703a0ef78b21df0d737d4e36e4be9f637ab9e51f2a637f639","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":13,"observedGeneration":13,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T21:36:56Z","lastTransitionTime":"2017-10-29T21:36:56Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T21:36:59Z","lastTransitionTime":"2017-10-29T21:36:57Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-12\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-13
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-13
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "13"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-13
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-13
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:f3c015f9ea8834c703a0ef78b21df0d737d4e36e4be9f637ab9e51f2a637f639
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-14-deploy
+      openshift.io/deployment-config.latest-version: "14"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1122613","generation":15,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:20efb5d045fb07216024bf89fe456feff4c4320b718099c882c6f5e98bf4ff38"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:20efb5d045fb07216024bf89fe456feff4c4320b718099c882c6f5e98bf4ff38","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":14,"observedGeneration":14,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T21:36:56Z","lastTransitionTime":"2017-10-29T21:36:56Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T21:49:23Z","lastTransitionTime":"2017-10-29T21:49:21Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-13\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-14
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-14
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "14"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-14
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-14
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:20efb5d045fb07216024bf89fe456feff4c4320b718099c882c6f5e98bf4ff38
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-15-deploy
+      openshift.io/deployment-config.latest-version: "15"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1123067","generation":16,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:50f0b985422b5008262e06c8dd4453337191b938bbe4516064f6aef57e65e801"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:50f0b985422b5008262e06c8dd4453337191b938bbe4516064f6aef57e65e801","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":15,"observedGeneration":15,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T21:36:56Z","lastTransitionTime":"2017-10-29T21:36:56Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T22:01:41Z","lastTransitionTime":"2017-10-29T22:01:39Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-14\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-15
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-15
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "15"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-15
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-15
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:50f0b985422b5008262e06c8dd4453337191b938bbe4516064f6aef57e65e801
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-16-deploy
+      openshift.io/deployment-config.latest-version: "16"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1169571","generation":17,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:03c6e2298a0ea2ea2ec9135bd720b4b81c2e86d1ee3378e31a1cb2515c327f54"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:03c6e2298a0ea2ea2ec9135bd720b4b81c2e86d1ee3378e31a1cb2515c327f54","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":16,"observedGeneration":16,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T21:36:56Z","lastTransitionTime":"2017-10-29T21:36:56Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T22:08:38Z","lastTransitionTime":"2017-10-29T22:08:35Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-15\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-16
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-16
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "16"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-16
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-16
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:03c6e2298a0ea2ea2ec9135bd720b4b81c2e86d1ee3378e31a1cb2515c327f54
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-17-deploy
+      openshift.io/deployment-config.latest-version: "17"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1172968","generation":18,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:51e074ff6f89573bbd62aeb95a211bbaee9cf8169d585c596d643ea462705965"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:51e074ff6f89573bbd62aeb95a211bbaee9cf8169d585c596d643ea462705965","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":17,"observedGeneration":17,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T21:36:56Z","lastTransitionTime":"2017-10-29T21:36:56Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-30T12:13:47Z","lastTransitionTime":"2017-10-30T12:13:45Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-16\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-17
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-17
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "17"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-17
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-17
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:51e074ff6f89573bbd62aeb95a211bbaee9cf8169d585c596d643ea462705965
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.name: appname-18-deploy
+      openshift.io/deployment-config.latest-version: "18"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1185105","generation":19,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:d51b7622ccfe74618077dc443c9fe27b3faf7c14fffbafbc3e26b9e801e9b1c6"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:d51b7622ccfe74618077dc443c9fe27b3faf7c14fffbafbc3e26b9e801e9b1c6","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":18,"observedGeneration":18,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T21:36:56Z","lastTransitionTime":"2017-10-29T21:36:56Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-30T13:14:30Z","lastTransitionTime":"2017-10-30T13:14:28Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-17\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-18
+  spec:
+    replicas: 1
+    selector:
+      app: appname
+      deployment: appname-18
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "18"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-18
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-18
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:d51b7622ccfe74618077dc443c9fe27b3faf7c14fffbafbc3e26b9e801e9b1c6
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-2-deploy
+      openshift.io/deployment-config.latest-version: "2"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1041714","generation":3,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:20f685a4d0ece520fa2f8378fdbd7e6c96572be9a8d3681e0d823d34ee805ca9"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:20f685a4d0ece520fa2f8378fdbd7e6c96572be9a8d3681e0d823d34ee805ca9","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":2,"observedGeneration":2,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-28T22:02:53Z","lastTransitionTime":"2017-10-28T22:02:53Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-28T22:02:54Z","lastTransitionTime":"2017-10-28T22:02:47Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-1\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-2
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-2
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "2"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-2
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-2
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:20f685a4d0ece520fa2f8378fdbd7e6c96572be9a8d3681e0d823d34ee805ca9
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/desired-replicas: "1"
+      kubectl.kubernetes.io/update-source-id: appname-2:fa2c8d5d-bc2c-11e7-ac0a-000d3ab7e1e9
+      openshift.io/deployer-pod.name: appname-3-deploy
+      openshift.io/deployment-config.latest-version: "3"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Failed
+      openshift.io/deployment.replicas: "0"
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1072237","generation":4,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:75b6d04308f07257fc6bc86cfe00aafb5ba3a9cd43801536bc7f19b60a704cf7"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:75b6d04308f07257fc6bc86cfe00aafb5ba3a9cd43801536bc7f19b60a704cf7","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":3,"observedGeneration":3,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-28T22:02:53Z","lastTransitionTime":"2017-10-28T22:02:53Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-28T22:11:56Z","lastTransitionTime":"2017-10-28T22:11:54Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-2\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-3
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-3
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "3"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-3
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-3
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:75b6d04308f07257fc6bc86cfe00aafb5ba3a9cd43801536bc7f19b60a704cf7
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-4-deploy
+      openshift.io/deployment-config.latest-version: "4"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1091289","generation":5,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:582eab4394883aee6e43a49bb50813f4ba58ee1c4a2e3ddc7562e1150ce0758b"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:582eab4394883aee6e43a49bb50813f4ba58ee1c4a2e3ddc7562e1150ce0758b","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":4,"observedGeneration":4,"replicas":1,"updatedReplicas":0,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-28T22:02:53Z","lastTransitionTime":"2017-10-28T22:02:53Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"False","lastUpdateTime":"2017-10-29T07:36:18Z","lastTransitionTime":"2017-10-29T07:36:18Z","reason":"ProgressDeadlineExceeded","message":"replication controller \"appname-3\" has failed progressing"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-4
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-4
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "4"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-4
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-4
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:582eab4394883aee6e43a49bb50813f4ba58ee1c4a2e3ddc7562e1150ce0758b
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/desired-replicas: "1"
+      kubectl.kubernetes.io/update-source-id: appname-4:7995dc31-bcaa-11e7-ac0a-000d3ab7e1e9
+      openshift.io/deployer-pod.name: appname-5-deploy
+      openshift.io/deployment-config.latest-version: "5"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.cancelled: "true"
+      openshift.io/deployment.phase: Failed
+      openshift.io/deployment.replicas: "0"
+      openshift.io/deployment.status-reason: newer deployment was found running
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1092784","generation":6,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:b971fb6953696a1ad399d2267d318e61346134e45871eac3e70401c01fe8ff4b"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:b971fb6953696a1ad399d2267d318e61346134e45871eac3e70401c01fe8ff4b","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":5,"observedGeneration":5,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-28T22:02:53Z","lastTransitionTime":"2017-10-28T22:02:53Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T13:10:22Z","lastTransitionTime":"2017-10-29T13:10:20Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-4\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-5
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-5
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "5"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-5
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-5
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:b971fb6953696a1ad399d2267d318e61346134e45871eac3e70401c01fe8ff4b
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-6-deploy
+      openshift.io/deployment-config.latest-version: "6"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1093369","generation":7,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:652f933c3ef416ad1f057e6caae7a8d8c4553fe27c4f2e78e6605e0f7ff68f53"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:652f933c3ef416ad1f057e6caae7a8d8c4553fe27c4f2e78e6605e0f7ff68f53","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":6,"observedGeneration":6,"replicas":2,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":1,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-28T22:02:53Z","lastTransitionTime":"2017-10-28T22:02:53Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T13:36:07Z","lastTransitionTime":"2017-10-29T13:36:07Z","reason":"ReplicationControllerUpdated","message":"replication controller \"appname-5\" is progressing"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-6
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-6
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "6"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-6
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-6
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:652f933c3ef416ad1f057e6caae7a8d8c4553fe27c4f2e78e6605e0f7ff68f53
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/desired-replicas: "1"
+      kubectl.kubernetes.io/update-source-id: appname-6:2475e532-bcaf-11e7-ac0a-000d3ab7e1e9
+      openshift.io/deployer-pod.name: appname-7-deploy
+      openshift.io/deployment-config.latest-version: "7"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.cancelled: "true"
+      openshift.io/deployment.phase: Failed
+      openshift.io/deployment.replicas: "0"
+      openshift.io/deployment.status-reason: newer deployment was found running
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1097604","generation":8,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:df0c88ec19732d14240a3a698bd21b20850aeadb1b437315732fd44c1f26f12d"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:df0c88ec19732d14240a3a698bd21b20850aeadb1b437315732fd44c1f26f12d","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":7,"observedGeneration":7,"replicas":1,"updatedReplicas":1,"availableReplicas":0,"unavailableReplicas":1,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T13:49:42Z","lastTransitionTime":"2017-10-29T13:49:40Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-6\" successfully rolled out"},{"type":"Available","status":"False","lastUpdateTime":"2017-10-29T14:05:22Z","lastTransitionTime":"2017-10-29T14:05:22Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-7
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-7
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "7"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-7
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-7
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:df0c88ec19732d14240a3a698bd21b20850aeadb1b437315732fd44c1f26f12d
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-8-deploy
+      openshift.io/deployment-config.latest-version: "8"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1098325","generation":9,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:67cf0346eb63c9493995a98fd7ade01614a867ff5f1ded9faf14a256416fdc6e"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:67cf0346eb63c9493995a98fd7ade01614a867ff5f1ded9faf14a256416fdc6e","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":8,"observedGeneration":8,"replicas":2,"updatedReplicas":1,"availableReplicas":0,"unavailableReplicas":2,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2017-10-29T14:05:22Z","lastTransitionTime":"2017-10-29T14:05:22Z","message":"Deployment config does not have minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T14:45:54Z","lastTransitionTime":"2017-10-29T14:45:54Z","reason":"ReplicationControllerUpdated","message":"replication controller \"appname-7\" is progressing"}]}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-8
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-8
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "8"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-8
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-8
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:67cf0346eb63c9493995a98fd7ade01614a867ff5f1ded9faf14a256416fdc6e
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/original-replicas: "1"
+      openshift.io/deployer-pod.name: appname-9-deploy
+      openshift.io/deployment-config.latest-version: "9"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: ""
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"appname","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/appname","uid":"b898443f-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1105640","generation":10,"creationTimestamp":"2017-10-28T22:02:42Z","labels":{"app":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["appname"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/appname@sha256:6ccacd94b0985506a2160ea5b5483dee38aa17134312c9f897f5e411f06154fb"}}],"replicas":1,"test":false,"selector":{"app":"appname","deploymentconfig":"appname"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"appname","deploymentconfig":"appname"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"containers":[{"name":"appname","image":"172.30.246.143:5000/simon/appname@sha256:6ccacd94b0985506a2160ea5b5483dee38aa17134312c9f897f5e411f06154fb","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":9,"observedGeneration":9,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"appname:latest"}}}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2017-10-29T14:54:21Z","lastTransitionTime":"2017-10-29T14:54:21Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2017-10-29T14:54:25Z","lastTransitionTime":"2017-10-29T14:54:23Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"appname-8\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: appname
+      openshift.io/deployment-config.name: appname
+    name: appname-9
+  spec:
+    replicas: 0
+    selector:
+      app: appname
+      deployment: appname-9
+      deploymentconfig: appname
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "9"
+          openshift.io/deployment-config.name: appname
+          openshift.io/deployment.name: appname-9
+          openshift.io/generated-by: OpenShiftWebConsole
+        creationTimestamp: null
+        labels:
+          app: appname
+          deployment: appname-9
+          deploymentconfig: appname
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/appname@sha256:6ccacd94b0985506a2160ea5b5483dee38aa17134312c9f897f5e411f06154fb
+          imagePullPolicy: Always
+          name: appname
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.name: daniel-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: daniel
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: image change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"v1","metadata":{"name":"daniel","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/deploymentconfigs/daniel","uid":"3b758cf6-ba5d-11e7-9479-000d3ab7e5f4","resourceVersion":"858672","generation":2,"creationTimestamp":"2017-10-26T14:52:05Z","labels":{"app":"daniel"},"annotations":{"openshift.io/generated-by":"OpenShiftWebConsole"}},"spec":{"strategy":{"type":"Rolling","rollingParams":{"updatePeriodSeconds":1,"intervalSeconds":1,"timeoutSeconds":600,"maxUnavailable":"25%","maxSurge":"25%"},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["daniel"],"from":{"kind":"ImageStreamTag","namespace":"simon","name":"daniel:latest"},"lastTriggeredImage":"172.30.246.143:5000/simon/daniel@sha256:bafee3dcbf3894ad94aad4b0c9b3a5e7f261040ea9c6e866dc8184088f26b4b8"}},{"type":"ConfigChange"}],"replicas":1,"test":false,"selector":{"deploymentconfig":"daniel"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"daniel","deploymentconfig":"daniel"}},"spec":{"containers":[{"name":"daniel","image":"172.30.246.143:5000/simon/daniel@sha256:bafee3dcbf3894ad94aad4b0c9b3a5e7f261040ea9c6e866dc8184088f26b4b8","ports":[{"containerPort":8080,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","imagePullPolicy":"Always"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","securityContext":{}}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"image change","causes":[{"type":"ImageChange","imageTrigger":{"from":{"kind":"ImageStreamTag","namespace":"simon","name":"daniel:latest"}}}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2017-10-26T14:52:05Z","lastTransitionTime":"2017-10-26T14:52:05Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: null
+    generation: 1
+    labels:
+      app: daniel
+      openshift.io/deployment-config.name: daniel
+    name: daniel-1
+  spec:
+    replicas: 1
+    selector:
+      deployment: daniel-1
+      deploymentconfig: daniel
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: daniel
+          openshift.io/deployment.name: daniel-1
+        creationTimestamp: null
+        labels:
+          app: daniel
+          deployment: daniel-1
+          deploymentconfig: daniel
+      spec:
+        containers:
+        - image: 172.30.246.143:5000/simon/daniel@sha256:bafee3dcbf3894ad94aad4b0c9b3a5e7f261040ea9c6e866dc8184088f26b4b8
+          imagePullPolicy: Always
+          name: daniel
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    replicas: 0
+- apiVersion: v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    name: appname-https-public
+  spec:
+    host: appname.demo.dfe.secnix.co.uk
+    tls:
+      insecureEdgeTerminationPolicy: Allow
+      termination: edge
+    to:
+      kind: Service
+      name: appname
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2017-10-28T22:05:53Z
+        status: "True"
+        type: Admitted
+      host: appname.demo.dfe.secnix.co.uk
+      routerName: router
+- apiVersion: v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    name: daniel
+  spec:
+    host: daniel.app.paas.education.gov.uk.test
+    port:
+      targetPort: 8080-tcp
+    to:
+      kind: Service
+      name: daniel
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2017-10-26T15:14:56Z
+        status: "True"
+        type: Admitted
+      host: daniel.app.paas.education.gov.uk.test
+      routerName: router
+- apiVersion: v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    name: daniel-https-public
+  spec:
+    host: daniel2.demo.dfe.secnix.co.uk
+    port:
+      targetPort: 8080-tcp
+    tls:
+      insecureEdgeTerminationPolicy: Allow
+      termination: edge
+    to:
+      kind: Service
+      name: daniel
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2017-10-27T18:27:41Z
+        status: "True"
+        type: Admitted
+      host: daniel2.demo.dfe.secnix.co.uk
+      routerName: router
+- apiVersion: v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    name: daniel-public
+  spec:
+    host: daniel.demo.dfe.secnix.co.uk
+    port:
+      targetPort: 8080-tcp
+    to:
+      kind: Service
+      name: daniel
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2017-10-26T16:16:27Z
+        status: "True"
+        type: Admitted
+      host: daniel.demo.dfe.secnix.co.uk
+      routerName: router
+- apiVersion: v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    name: nexus-https-public
+  spec:
+    host: nexus.demo.dfe.secnix.co.uk
+    tls:
+      insecureEdgeTerminationPolicy: Allow
+      termination: edge
+    to:
+      kind: Service
+      name: nexus3
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2017-10-28T19:20:02Z
+        status: "True"
+        type: Admitted
+      host: nexus.demo.dfe.secnix.co.uk
+      routerName: router
+- apiVersion: v1
+  kind: Route
+  metadata:
+    creationTimestamp: null
+    name: nexus3
+  spec:
+    host: nexus3.app.paas.education.gov.uk.test
+    to:
+      kind: Service
+      name: nexus3
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: 2017-10-26T15:01:34Z
+        status: "True"
+        type: Admitted
+      host: nexus3.app.paas.education.gov.uk.test
+      routerName: router
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftWebConsole
+    creationTimestamp: null
+    labels:
+      app: appname
+    name: appname
+  spec:
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      deploymentconfig: appname
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftWebConsole
+    creationTimestamp: null
+    labels:
+      app: daniel
+    name: daniel
+  spec:
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      deploymentconfig: daniel
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: null
+    name: nexus3
+  spec:
+    ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8081
+    selector:
+      name: nexus3
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-10
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-10
+    name: appname-10-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-10","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-10","uid":"5d64003c-bc7a-11e7-87f4-000d3ab7e5f4","resourceVersion":"1072196","creationTimestamp":"2017-10-29T07:25:39Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"10"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-11
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-11
+    name: appname-11-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-11","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-11","uid":"56fe4301-bcaa-11e7-87f4-000d3ab7e5f4","resourceVersion":"1091223","creationTimestamp":"2017-10-29T13:09:04Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"11"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-12
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-12
+    name: appname-12-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-12","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-12","uid":"0a49a7ac-bcae-11e7-87f4-000d3ab7e5f4","resourceVersion":"1092745","creationTimestamp":"2017-10-29T13:35:34Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"12"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-13
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-13
+    name: appname-13-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-13","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-13","uid":"ff281a63-bcae-11e7-87f4-000d3ab7e5f4","resourceVersion":"1093292","creationTimestamp":"2017-10-29T13:42:24Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"13"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-14
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-14
+    name: appname-14-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-14","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-14","uid":"b735c187-bcb7-11e7-87f4-000d3ab7e5f4","resourceVersion":"1097526","creationTimestamp":"2017-10-29T14:44:49Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"14"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-15
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-15
+    name: appname-15-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-15","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-15","uid":"dcc9f12a-bcb8-11e7-87f4-000d3ab7e5f4","resourceVersion":"1098233","creationTimestamp":"2017-10-29T14:53:02Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"15"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon01.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon01.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-16
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-16
+    name: appname-16-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-16","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-16","uid":"e7480c06-bcca-11e7-87f4-000d3ab7e5f4","resourceVersion":"1105573","creationTimestamp":"2017-10-29T17:02:10Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"16"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-17
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-17
+    name: appname-17-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-17","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-17","uid":"4ba7aeb7-bced-11e7-87f4-000d3ab7e5f4","resourceVersion":"1119133","creationTimestamp":"2017-10-29T21:08:22Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"17"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-18
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-18
+    name: appname-18-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-18","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-18","uid":"392123e7-bcee-11e7-87f4-000d3ab7e5f4","resourceVersion":"1119568","creationTimestamp":"2017-10-29T21:15:00Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"18"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/created-by: |
+        {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"simon","name":"appname-18","uid":"f3c1b8fc-bd92-11e7-87f4-000d3ab7e5f4","apiVersion":"v1","resourceVersion":"1185130"}}
+      openshift.io/deployment-config.latest-version: "18"
+      openshift.io/deployment-config.name: appname
+      openshift.io/deployment.name: appname-18
+      openshift.io/generated-by: OpenShiftWebConsole
+      openshift.io/scc: restricted
+    creationTimestamp: null
+    generateName: appname-18-
+    labels:
+      app: appname
+      deployment: appname-18
+      deploymentconfig: appname
+  spec:
+    containers:
+    - image: 172.30.246.143:5000/simon/appname@sha256:d51b7622ccfe74618077dc443c9fe27b3faf7c14fffbafbc3e26b9e801e9b1c6
+      imagePullPolicy: Always
+      name: appname
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources: {}
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+          - SYS_CHROOT
+        privileged: false
+        runAsUser: 1000090000
+        seLinuxOptions:
+          level: s0:c10,c0
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-lp54f
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom01.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: default-dockercfg-l0qb7
+    nodeName: ukdigitalaom01.paas.education.gov.uk.test
+    restartPolicy: Always
+    securityContext:
+      fsGroup: 1000090000
+      seLinuxOptions:
+        level: s0:c10,c0
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - name: default-token-lp54f
+      secret:
+        secretName: default-token-lp54f
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-19
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-19
+    name: appname-19-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-19","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-19","uid":"19c7ce56-bcf1-11e7-87f4-000d3ab7e5f4","resourceVersion":"1121037","creationTimestamp":"2017-10-29T21:35:36Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"19"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-20
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-20
+    name: appname-20-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-20","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-20","uid":"beb6fbf2-bcf2-11e7-87f4-000d3ab7e5f4","resourceVersion":"1121764","creationTimestamp":"2017-10-29T21:47:22Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"20"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-21
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-21
+    name: appname-21-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-21","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-21","uid":"8e8178bd-bcf4-11e7-87f4-000d3ab7e5f4","resourceVersion":"1122543","creationTimestamp":"2017-10-29T22:00:20Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"21"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-22
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-22
+    name: appname-22-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-22","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-22","uid":"875a7dc7-bcf5-11e7-87f4-000d3ab7e5f4","resourceVersion":"1122998","creationTimestamp":"2017-10-29T22:07:18Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"22"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-23
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-23
+    name: appname-23-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-23","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-23","uid":"98628cb9-bd6b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1169502","creationTimestamp":"2017-10-30T12:12:27Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"23"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-24
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-24
+    name: appname-24-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-24","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-24","uid":"20785ab0-bd74-11e7-87f4-000d3ab7e5f4","resourceVersion":"1172918","creationTimestamp":"2017-10-30T13:13:31Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"24"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-25
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-25
+    name: appname-25-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-25","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-25","uid":"dc230321-bd92-11e7-87f4-000d3ab7e5f4","resourceVersion":"1185056","creationTimestamp":"2017-10-30T16:53:31Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"25"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/deployment.name: appname-3
+      openshift.io/scc: restricted
+    creationTimestamp: null
+    labels:
+      openshift.io/deployer-pod-for.name: appname-3
+    name: appname-3-deploy
+  spec:
+    activeDeadlineSeconds: 21600
+    containers:
+    - env:
+      - name: KUBERNETES_MASTER
+        value: https://ukdigitalaom03.paas.education.gov.uk.test:8443
+      - name: OPENSHIFT_MASTER
+        value: https://ukdigitalaom03.paas.education.gov.uk.test:8443
+      - name: BEARER_TOKEN_FILE
+        value: /var/run/secrets/kubernetes.io/serviceaccount/token
+      - name: OPENSHIFT_CA_DATA
+        value: |
+          -----BEGIN CERTIFICATE-----
+          MIIC6jCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtvcGVu
+          c2hpZnQtc2lnbmVyQDE1MDgyMzE2MjYwHhcNMTcxMDE3MDkxMzQ1WhcNMjIxMDE2
+          MDkxMzQ2WjAmMSQwIgYDVQQDDBtvcGVuc2hpZnQtc2lnbmVyQDE1MDgyMzE2MjYw
+          ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCse+N2Cw0/u/wwrySHv629
+          SZSX5NMsoYHdnMs4CASC6a4qKioif11XeXyTk8cWvl8/C1RwWdxkNJLHVLmrdHP8
+          TSCPYZjG+g2JOPuDnLa3FTSIuGuEtRA7kmEPj8Yme5co5G4Eu6A5lg9C3r2ileEn
+          FkeTYiiA7G+32WKwYkpCTKjOZA4FBRil/dZeTOc5W3At5XnuvHDxDYrLLy7kb7AG
+          1ZA/pqeIp4PGNqCJesmweYFP0exv1yu1kgbKiNBrfoyLS0S56UG7U8qemIomlA2j
+          lTCXc9Qd1is2cdBQcuyesehaWPNOodwgf3jb66meLjMfiTvmjk7xYByADd1A4Her
+          AgMBAAGjIzAhMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MA0GCSqG
+          SIb3DQEBCwUAA4IBAQA883wtLCYJvc4kSeJU3E2f9+ohafUI3zi18ExSIw/rcOIM
+          yUzQSzr1oABxTj/SstgpJ5IUHbgKL4p6ddPkjN+P//jxZl7uCTHb/dp4bPSX0XJQ
+          TdQZpFh5Up7JO2Oin7HjKs7WlEPPXFXImRllNSs0dKjK6NMI+KjGNNYBVYK3hC0q
+          CCBhltWVsqYlL4slcYayDhYUbEmok7rhdl+eIun9iYXkv9U9PvW+HYxJPCUdjCUD
+          +1lmi2MbBS/Dju018w9lCLNUHqjUbNFbFCMfLMeX0mThaa82Gu9AW25t4bTiRd6X
+          YnXowY3PIreqjqRvf4P6hpZHs8tzLSKWG4Y9pd5h
+          -----END CERTIFICATE-----
+      - name: OPENSHIFT_DEPLOYMENT_NAME
+        value: appname-3
+      - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+        value: simon
+      image: openshift3/ose-deployer:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: deployment
+      resources: {}
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+          - SYS_CHROOT
+        privileged: false
+        runAsUser: 1000090000
+        seLinuxOptions:
+          level: s0:c10,c0
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: deployer-token-ghmn7
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: deployer-dockercfg-3nzkf
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext:
+      fsGroup: 1000090000
+      seLinuxOptions:
+        level: s0:c10,c0
+    serviceAccount: deployer
+    serviceAccountName: deployer
+    terminationGracePeriodSeconds: 10
+    volumes:
+    - name: deployer-token-ghmn7
+      secret:
+        secretName: deployer-token-ghmn7
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-8
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-8
+    name: appname-8-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-8","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-8","uid":"88f004fe-bc2b-11e7-87f4-000d3ab7e5f4","resourceVersion":"1041071","creationTimestamp":"2017-10-28T22:01:22Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"8"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom03.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaom03.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: appname-9
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: appname-9
+    name: appname-9-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"appname-9","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/appname-9","uid":"d5000584-bc2c-11e7-87f4-000d3ab7e5f4","resourceVersion":"1041646","creationTimestamp":"2017-10-28T22:10:39Z","labels":{"app":"appname","buildconfig":"appname","component":"development","logging-infra":"development","openshift.io/build-config.name":"appname","openshift.io/build.start-policy":"Serial","provider":"openshift"},"annotations":{"openshift.io/build-config.name":"appname","openshift.io/build.number":"9"}},"spec":{"serviceAccount":"builder","source":{"type":"Binary","binary":{}},"strategy":{"type":"Docker","dockerStrategy":{"from":{"kind":"DockerImage","name":"dotnet/dotnet-20-runtime-rhel7"},"dockerfilePath":"Dockerfile"}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/appname:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":null},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/appname:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"appname"},"output":{}}}
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-docker-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: docker-build
+      resources: {}
+      securityContext:
+        privileged: true
+      stdin: true
+      stdinOnce: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon02.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon02.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/build.name: daniel-1
+      openshift.io/scc: privileged
+    creationTimestamp: null
+    labels:
+      openshift.io/build.name: daniel-1
+    name: daniel-1-build
+  spec:
+    containers:
+    - args:
+      - --loglevel=0
+      env:
+      - name: BUILD
+        value: |
+          {"kind":"Build","apiVersion":"v1","metadata":{"name":"daniel-1","namespace":"simon","selfLink":"/oapi/v1/namespaces/simon/builds/daniel-1","uid":"3b8fe0af-ba5d-11e7-9479-000d3ab7e5f4","resourceVersion":"858308","creationTimestamp":"2017-10-26T14:52:05Z","labels":{"app":"daniel","buildconfig":"daniel","openshift.io/build-config.name":"daniel","openshift.io/build.start-policy":"Serial"},"annotations":{"openshift.io/build-config.name":"daniel","openshift.io/build.number":"1"}},"spec":{"serviceAccount":"builder","source":{"type":"Git","git":{"uri":"https://github.com/the-daniel-rothig/govuk-blank.git","ref":"master"}},"strategy":{"type":"Source","sourceStrategy":{"from":{"kind":"DockerImage","name":"registry.access.redhat.com/dotnet/dotnet-20-rhel7@sha256:0100293f7fb99c9158cb8ed77fd3ff913f45e8cc528f081986513bf434bad592"}}},"output":{"to":{"kind":"DockerImage","name":"172.30.246.143:5000/simon/daniel:latest"},"pushSecret":{"name":"builder-dockercfg-4twpn"}},"resources":{},"postCommit":{},"nodeSelector":null,"triggeredBy":[{"message":"Build configuration change"}]},"status":{"phase":"New","outputDockerImageReference":"172.30.246.143:5000/simon/daniel:latest","config":{"kind":"BuildConfig","namespace":"simon","name":"daniel"},"output":{}}}
+      - name: SOURCE_REPOSITORY
+        value: https://github.com/the-daniel-rothig/govuk-blank.git
+      - name: SOURCE_URI
+        value: https://github.com/the-daniel-rothig/govuk-blank.git
+      - name: SOURCE_REF
+        value: master
+      - name: ORIGIN_VERSION
+        value: v3.5.5.31.24
+      - name: ALLOWED_UIDS
+        value: 1-
+      - name: DROP_CAPS
+        value: KILL,MKNOD,SETGID,SETUID,SYS_CHROOT
+      - name: PUSH_DOCKERCFG_PATH
+        value: /var/run/secrets/openshift.io/push
+      image: openshift3/ose-sti-builder:v3.5.5.31.24
+      imagePullPolicy: IfNotPresent
+      name: sti-build
+      resources: {}
+      securityContext:
+        privileged: true
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/docker.sock
+        name: docker-socket
+      - mountPath: /var/run/secrets/openshift.io/push
+        name: builder-dockercfg-4twpn-push
+        readOnly: true
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: builder-token-8g3x5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon01.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: builder-dockercfg-4twpn
+    nodeName: ukdigitalaon01.paas.education.gov.uk.test
+    restartPolicy: Never
+    securityContext: {}
+    serviceAccount: builder
+    serviceAccountName: builder
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - hostPath:
+        path: /var/run/docker.sock
+      name: docker-socket
+    - name: builder-dockercfg-4twpn-push
+      secret:
+        secretName: builder-dockercfg-4twpn
+    - name: builder-token-8g3x5
+      secret:
+        secretName: builder-token-8g3x5
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      kubernetes.io/created-by: |
+        {"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicationController","namespace":"simon","name":"daniel-1","uid":"17557649-ba5e-11e7-9479-000d3ab7e5f4","apiVersion":"v1","resourceVersion":"858692"}}
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: daniel
+      openshift.io/deployment.name: daniel-1
+      openshift.io/scc: restricted
+    creationTimestamp: null
+    generateName: daniel-1-
+    labels:
+      app: daniel
+      deployment: daniel-1
+      deploymentconfig: daniel
+  spec:
+    containers:
+    - image: 172.30.246.143:5000/simon/daniel@sha256:bafee3dcbf3894ad94aad4b0c9b3a5e7f261040ea9c6e866dc8184088f26b4b8
+      imagePullPolicy: Always
+      name: daniel
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      resources: {}
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+          - SYS_CHROOT
+        privileged: false
+        runAsUser: 1000090000
+        seLinuxOptions:
+          level: s0:c10,c0
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-lp54f
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaom01.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: default-dockercfg-l0qb7
+    nodeName: ukdigitalaom01.paas.education.gov.uk.test
+    restartPolicy: Always
+    securityContext:
+      fsGroup: 1000090000
+      seLinuxOptions:
+        level: s0:c10,c0
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - name: default-token-lp54f
+      secret:
+        secretName: default-token-lp54f
+  status:
+    phase: Pending
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      openshift.io/scc: restricted
+    creationTimestamp: null
+    labels:
+      name: nexus3
+    name: nexus3
+  spec:
+    containers:
+    - image: sonatype/nexus3
+      imagePullPolicy: Always
+      name: nexus3
+      ports:
+      - containerPort: 8081
+        name: nexus3
+        protocol: TCP
+      resources:
+        limits:
+          memory: 1200Mi
+        requests:
+          memory: 1200Mi
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+          - SYS_CHROOT
+        privileged: false
+        runAsUser: 1000090000
+        seLinuxOptions:
+          level: s0:c10,c0
+      terminationMessagePath: /dev/termination-log
+      volumeMounts:
+      - mountPath: /nexus-data
+        name: nexus3-1
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: default-token-lp54f
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    host: ukdigitalaon01.paas.education.gov.uk.test
+    imagePullSecrets:
+    - name: default-dockercfg-l0qb7
+    nodeName: ukdigitalaon01.paas.education.gov.uk.test
+    restartPolicy: Always
+    securityContext:
+      fsGroup: 1000090000
+      seLinuxOptions:
+        level: s0:c10,c0
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    volumes:
+    - emptyDir: {}
+      name: nexus3-1
+    - name: default-token-lp54f
+      secret:
+        secretName: default-token-lp54f
+  status:
+    phase: Pending

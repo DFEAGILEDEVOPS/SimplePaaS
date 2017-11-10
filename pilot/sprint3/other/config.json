@@ -1,0 +1,52 @@
+{
+    "apiVersion": "v1",
+    "kind": "BuildConfig",
+    "metadata": {
+        "creationTimestamp": "2017-10-26T15:05:53Z",
+        "labels": {
+            "app": "appname",
+            "component": "development",
+            "logging-infra": "development",
+            "provider": "openshift"
+        },
+        "name": "appname",
+        "namespace": "simon",
+        "resourceVersion": "1185055",
+        "selfLink": "/oapi/v1/namespaces/simon/buildconfigs/appname",
+        "uid": "2912a017-ba5f-11e7-9479-000d3ab7e5f4"
+    },
+    "spec": {
+        "nodeSelector": null,
+        "output": {
+            "to": {
+                "kind": "ImageStreamTag",
+                "name": "appname:latest"
+            }
+        },
+        "postCommit": {},
+        "resources": {},
+        "runPolicy": "Serial",
+        "source": {
+            "binary": {},
+            "type": "Binary"
+        },
+        "strategy": {
+            "dockerStrategy": {
+                "dockerfilePath": "Dockerfile",
+                "from": {
+                    "kind": "DockerImage",
+                    "name": "dotnet/dotnet-20-runtime-rhel7"
+                }
+            },
+            "type": "Docker"
+        },
+        "triggers": [
+            {
+                "type": "ConfigChange"
+            }
+        ]
+    },
+    "status": {
+        "lastVersion": 25
+    }
+}

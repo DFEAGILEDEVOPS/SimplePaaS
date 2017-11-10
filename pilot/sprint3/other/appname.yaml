@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: BuildConfig
+metadata:
+  name: appname
+  namespace: simon
+  selfLink: /oapi/v1/namespaces/simon/buildconfigs/appname
+  uid: 3b766009-ba5d-11e7-9479-000d3ab7e5f4
+  resourceVersion: '858307'
+  creationTimestamp: '2017-10-26T14:52:05Z'
+  labels:
+    app: appname
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+spec:
+  triggers:
+    - type: Generic
+      generic:
+        secret: bb6d78583820b367
+    - type: GitHub
+      github:
+        secret: dd07255f01950d2f
+    - type: ImageChange
+      imageChange:
+        lastTriggeredImageID: >-
+          registry.access.redhat.com/dotnet/dotnet-20-rhel7@sha256:0100293f7fb99c9158cb8ed77fd3ff913f45e8cc528f081986513bf434bad592
+    - type: ConfigChange
+  runPolicy: Serial
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/DFEAGILEDEVOPS/govuk-blank.git'
+      ref: master
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        namespace: openshift
+        name: 'dotnet:2.0'
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'appname:latest'
+  resources: {}
+  postCommit: {}
+  nodeSelector: null
+status:
+  lastVersion: 1
+
