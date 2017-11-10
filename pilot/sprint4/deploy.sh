@@ -12,7 +12,7 @@ echo artifact_path=$artifact_path
 
 cd $artifact_path
 DROP_ZIP=`find . -name \*.zip`
-echo DROP_ZIP=$INNER_ZIP
+echo DROP_ZIP=$DROP_ZIP
 release_name=$oc_project_name.$oc_project_name.$BUILD_BUILDID.zip
 mv $DROP_ZIP $release_name
 
