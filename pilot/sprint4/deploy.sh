@@ -1,14 +1,6 @@
 ### This file takes a built and zipped VSO, adds a deploy to rhel7 docker file, 
 ### and uploads it to a nexus repo, the deploys it to openshift. 
 
-export oc_nexus_credentials="$(oc_nexus_credentials)"
-export oc_openshift_credentials="$(oc_openshift_credentials)"
-export oc_dfe_deploy_url="$(oc_dfe_deploy_url)"
-export oc_nexus_repo="$(oc_nexus_repo)"
-export oc_project_name="$(oc_project_name)"
-export oc_build_config_name="$(oc_build_config_name)"
-export artifact_path="$(System.DefaultWorkingDirectory)"
-
 echo BUILD_ARTIFACTSTAGINGDIRECTORY=$BUILD_ARTIFACTSTAGINGDIRECTORY
 echo BUILD_BINARIESDIRECTORY=$BUILD_BINARIESDIRECTORY
 echo BUILD_BUILDID=$BUILD_BUILDID
