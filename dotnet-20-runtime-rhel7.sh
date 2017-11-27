@@ -34,6 +34,9 @@ EOF
 chmod +x secret_entrypoint
 chgrp 0 secret_entrypoint
 
+ls -al secret_entrypoint
+cat secret_entrypoint
+
 # Create the docker file
 cat > Dockerfile <<EOF
 FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
@@ -43,6 +46,9 @@ ADD . .
 ENTRYPOINT [ "/opt/app-root/app/secret_entrypoint" ]
 CMD ["dotnet", "$oc_entry_point"]
 EOF
+
+ls -al Dockerfile
+cat Dockerfile
 
 echo ### creating the build zip 
 tar zcf /tmp/$BUILD_BUILDID.tgz *
