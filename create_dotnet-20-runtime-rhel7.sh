@@ -48,16 +48,18 @@ status:
   lastVersion: 25
 EOF
 # create the azure key vault secret
-./oc create -f - <<EOF 
-apiVersion: v1
-kind: Secret
-metadata:
-  name: azure-secret
-stringData:
-  hostname: ${oc_build_config_name}-${oc_project_name}.demo.dfe.secnix.co.uk
-  secret.properties: |-     
-    akv_vault_url=${akv_vault_url}
-    akv_vault_client_id=${akv_vault_client_id}
-    akv_vault_client_secret=${akv_vault_client_secret}
-    akv_azure_tenant_id=${akv_azure_tenant_id}
-EOF
+# ./oc create -f - <<EOF 
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: azure-secret
+# stringData:
+#   hostname: ${oc_build_config_name}-${oc_project_name}.demo.dfe.secnix.co.uk
+#   secret.properties: |-     
+#     akv_vault_url=${akv_vault_url}
+#     akv_vault_client_id=${akv_vault_client_id}
+#     akv_vault_client_secret=${akv_vault_client_secret}
+#     akv_azure_tenant_id=${akv_azure_tenant_id}
+# EOF
+
+./oc process -f dotnet-20-runtime-rhel7.json -p secret_name=azure-secret -p akv_vault_url=akv_vault_url2 -p akv_vault_client_id=testclientid2 -p akv_vault_client_secret=testclientsecret2 -p akv_azure_tenant_id=testtenantid2 | oc create -f -

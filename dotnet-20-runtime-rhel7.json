@@ -1,0 +1,58 @@
+{
+  "kind": "Template",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "dotnet-20-runtime-rhel7",
+    "annotations": {
+      "description": "Template for dotnet-20-runtime-rhel7 projects.",
+      "iconClass": "icon-dotnet",
+      "tags": "instant-app,dotnet"
+    }
+  },
+  "objects": [
+    {
+      "kind": "Secret",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "azure_key_vault",
+        "annotations": {
+          "template.openshift.io/expose-akv_vault_url": "{.data['akv_vault_url']}",
+          "template.openshift.io/expose-akv_vault_client_idd": "{.data['akv_vault_client_id']}",
+          "template.openshift.io/expose-akv_vault_client_secret": "{.data['akv_vault_client_secret']}",
+          "template.openshift.io/expose-akv_azure_tenant_id": "{.data['akv_azure_tenant_id']}"
+        }
+      },
+      "stringData" : {
+        "akv_vault_url" : "${akv_vault_url}",
+        "akv_vault_client_id" : "${akv_vault_client_id}",
+        "akv_vault_client_secret" : "${akv_vault_client_secret}",
+        "akv_azure_tenant_id" : "${akv_azure_tenant_id}"
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "name": "akv_vault_url",
+      "description": "Azure Key Vault URL",
+      "required": true
+    },
+    {
+      "name": "akv_vault_client_id",
+      "description": "Azure Key Vault Client Id",
+      "required": true
+    },
+    {
+      "name": "akv_vault_client_secret",
+      "description": "Azure Key Vault Client Secret",
+      "required": true
+    },
+    {
+      "name": "akv_azure_tenant_id",
+      "description": "Azure Key Vault Tenant Id",
+      "required": true
+    }
+  ],
+  "labels": {
+    "template": "application-template-dockerbuild"
+  }
+}
