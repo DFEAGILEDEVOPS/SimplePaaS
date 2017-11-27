@@ -34,4 +34,7 @@ tar xfv oc.tar
 
 echo ### LOGGING IN
 ./oc login --insecure-skip-tls-verify https://demo.dfe.secnix.co.uk:8443 --token="$oc_openshift_credentials"
-./oc delete project $oc_project_name
+exists=`./oc projects | grep $oc_project_name`
+if [ -n "$exists" ]; then
+    ./oc delete project $oc_project_name
+fi
