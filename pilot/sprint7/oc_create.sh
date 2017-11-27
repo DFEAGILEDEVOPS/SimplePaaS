@@ -12,5 +12,5 @@ tar xfv oc.tar
 echo ### LOGGING IN
 ./oc login --insecure-skip-tls-verify https://demo.dfe.secnix.co.uk:8443 --token="$oc_openshift_credentials"
 
-echo source create_${oc_runtime_image}.sh $oc_project_name $oc_build_config_name
-source create_${oc_runtime_image}.sh $oc_project_name $oc_build_config_name
+echo source ./create_${oc_runtime_image}.sh $oc_project_name $oc_build_config_name
+source ./create_${oc_runtime_image}.sh $oc_project_name $oc_build_config_name
