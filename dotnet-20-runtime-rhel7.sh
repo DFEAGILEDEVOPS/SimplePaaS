@@ -14,15 +14,13 @@ echo BUILD_BUILDID=$BUILD_BUILDID
 
 echo oc_environment=$oc_entry_point
 
-cd $BUILD_ARTIFACTSTAGINGDIRECTORY
-echo current location is `pwd`
-find . -name \*.zip
-INNER_ZIP=`find . -name \*.zip`
+INNER_ZIP=`find $BUILD_ARTIFACTSTAGINGDIRECTORY -name \*.zip`
 echo INNER_ZIP=$INNER_ZIP
 
 mkdir -p /tmp/$BUILD_BUILDID
 cd /tmp/$BUILD_BUILDID
-unzip $BUILD_ARTIFACTSTAGINGDIRECTORY/$INNER_ZIP
+echo unzip $INNER_ZIP
+unzip $INNER_ZIP
 
 # create the secret loader
 cat > secret_entrypoint<<EOF
