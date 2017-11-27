@@ -26,7 +26,7 @@ cat > secret_entrypoint<<EOF
 set -a                                                                                                                                                                
 . /etc/secret-volume/secret.properties
 set +a
-exec "$@"
+exec "\$@"
 EOF
 
 chmod +x secret_entrypoint
