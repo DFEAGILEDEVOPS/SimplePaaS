@@ -20,6 +20,10 @@ find . -name \*.zip
 INNER_ZIP=`find . -name \*.zip`
 echo INNER_ZIP=$INNER_ZIP
 
+mkdir -p /tmp/$BUILD_BUILDID
+cd /tmp/$BUILD_BUILDID
+unzip $INNER_ZIP
+
 # create the secret loader
 cat > secret_entrypoint<<EOF
 #!/bin/sh
@@ -38,19 +42,18 @@ FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
 
-CMD ["/opt/app-root/app/secret_entrypoint", "--", "dotnet", "$oc_entry_point"]
+RUN chgrp -R 0 /opt/app-root/app
+
+ENTRYPOINT [ "/opt/app-root/app/secret_entrypoint" ]
+CMD ["dotnet", "$oc_entry_point"]
 EOF
 
-cat Dockerfile
-
-echo ### ADDING Dockerfile TO $INNER_ZIP
-zip $INNER_ZIP Dockerfile
-echo ### ADDING secret_entrypoint TO $INNER_ZIP
-zip $INNER_ZIP secret_entrypoint
-mv $INNER_ZIP $BUILD_BUILDID.zip
+echo ### creating the build zip 
+tar zcf /tmp/$BUILD_BUILDID.tgz *
+ls -alh /tmp/$BUILD_BUILDID.tgz
 
 #echo ### PUBLISHING $INNER_ZIP TO $oc_nexus_repo
-#curl -k -v -u $oc_nexus_credentials --upload-file $BUILD_BUILDID.zip $oc_nexus_repo
+#curl -k -v -u $oc_nexus_credentials --upload-file /tmp/$BUILD_BUILDID.tgz $oc_nexus_repo
 
 # Download oc
 #curl -u $oc_nexus_credentials -O -k https://nexus.demo.dfe.secnix.co.uk/repository/dfe_admin/oc-3.6.173.0.49-linux.tar
@@ -61,9 +64,9 @@ tar xfv oc.tar
 echo ### LOGGING IN
 ./oc login --insecure-skip-tls-verify https://demo.dfe.secnix.co.uk:8443 --token="$oc_openshift_credentials"
 
-echo ### RUNNIGN BUILD appname IN $OC_PROJECT WITH $BUILD_BUILDID.zip
+echo ### RUNNIGN BUILD appname IN $OC_PROJECT WITH /tmp/$BUILD_BUILDID.tgz
 ./oc project $oc_project
-./oc start-build $oc_app -n $oc_project --from-archive=$BUILD_BUILDID.zip
+./oc start-build $oc_app -n $oc_project --from-archive=/tmp/$BUILD_BUILDID.tgz
 ### This is a bit annoying that we are having to patch this in repeatedly
 ./oc volume dc/$oc_app --add --type=secret --secret-name=azure-key-vault -m /etc/secret-volume
 ./oc env dc/$oc_app ASPNETCORE_ENVIRONMENT=${oc_environment}
