@@ -30,6 +30,7 @@ exec "\$@"
 EOF
 
 chmod +x secret_entrypoint
+chgrp chgrp 0 secret_entrypoint
 
 # Create the docker file
 cat > Dockerfile <<EOF
@@ -37,10 +38,7 @@ FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
 
-RUN chgrp -R 0 /opt/app-root/app
-
-ENTRYPOINT [ "/opt/app-root/app/secret_entrypoint" ]
-CMD ["dotnet", "$oc_entry_point"]
+CMD ["/opt/app-root/app/secret_entrypoint", "--", "dotnet", "$oc_entry_point"]
 EOF
 
 cat Dockerfile
