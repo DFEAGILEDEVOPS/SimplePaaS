@@ -4,9 +4,13 @@ echo oc_project_name=$oc_project_name
 oc_build_config_name=$2
 echo oc_build_config_name=$oc_build_config_name
 
+# create the project
 ./oc new-project $oc_project_name
+# create a default dotnet2.0 from source which will be deleted later but we will keep the deployment it creates
 ./oc new-app --name=$oc_build_config_name dotnet:2.0~https://github.com/DFEAGILEDEVOPS/govuk-blank.git
+# create the route in from outside
 ./oc create route edge --service=$oc_build_config_name --hostname=${oc_build_config_name}-${oc_project_name}.demo.dfe.secnix.co.uk
+# delete the from source build config and replace it with a from binary build config
 ./oc delete bc $oc_build_config_name -n $oc_project_name
 ./oc create -f - <<EOF 
 apiVersion: v1
@@ -43,6 +47,17 @@ spec:
 status:
   lastVersion: 25
 EOF
-
-
-
+# create the azure key vault secret
+./oc create -f - <<EOF 
+apiVersion: v1
+kind: Secret
+metadata:
+  name: azure-secret
+stringData:
+  hostname: ${oc_build_config_name}-${oc_project_name}.demo.dfe.secnix.co.uk
+  secret.properties: |-     
+    akv_vault_url=${akv_vault_url}
+    akv_vault_client_id=${akv_vault_client_id}
+    akv_vault_client_secret=${akv_vault_client_secret}
+    akv_azure_tenant_id=${akv_azure_tenant_id}
+EOF
