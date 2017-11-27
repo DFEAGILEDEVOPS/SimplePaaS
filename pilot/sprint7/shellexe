@@ -1,0 +1,18 @@
+# capture args 
+oc_project_name="$(oc_project_name)" 
+oc_build_config_name="$(oc_build_config_name)" 
+oc_runtime_image="$(oc_runtime_image)" 
+oc_nexus_credentials="$(oc_nexus_credentials)" 
+oc_openshift_credentials="$(oc_openshift_credentials)" 
+# export args
+export oc_project_name
+export oc_build_config_name
+export oc_runtime_image
+export oc_nexus_credentials
+export oc_openshift_credentials
+# grab the runtime specific script
+wget https://raw.githubusercontent.com/DFEAGILEDEVOPS/SimplePaaS/master/pilot/sprint7/create_$(oc_runtime_image).sh
+head create_$(oc_runtime_image).sh
+# download and run script
+curl https://raw.githubusercontent.com/DFEAGILEDEVOPS/SimplePaaS/master/pilot/sprint7/oc_create.sh -sSf | sh
+
