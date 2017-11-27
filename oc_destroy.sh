@@ -4,7 +4,7 @@
 oc_project_name=$1
 oc_openshift_credentials=$2
 
-echo oc_project_name=$oc_project_nam
+echo oc_project_name=$oc_project_name
 echo oc_openshift_credentials=$oc_openshift_credentials 
 
 # Download oc
