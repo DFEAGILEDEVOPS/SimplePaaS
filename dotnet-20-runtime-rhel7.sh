@@ -45,6 +45,8 @@ cat Dockerfile
 
 echo ### ADDING Dockerfile TO $INNER_ZIP
 zip $INNER_ZIP Dockerfile
+echo ### ADDING secret_entrypoint TO $INNER_ZIP
+zip $INNER_ZIP secret_entrypoint
 mv $INNER_ZIP $BUILD_BUILDID.zip
 
 #echo ### PUBLISHING $INNER_ZIP TO $oc_nexus_repo
