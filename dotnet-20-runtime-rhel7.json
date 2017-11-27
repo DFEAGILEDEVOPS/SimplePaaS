@@ -23,10 +23,8 @@
         }
       },
       "stringData" : {
-        "akv_vault_url" : "${akv_vault_url}",
-        "akv_vault_client_id" : "${akv_vault_client_id}",
-        "akv_vault_client_secret" : "${akv_vault_client_secret}",
-        "akv_azure_tenant_id" : "${akv_azure_tenant_id}"
+        "secret.properties": 
+        "akv_vault_url=${akv_vault_url}\nakv_vault_client_id=${akv_vault_client_id}\nakv_vault_client_secret=${akv_vault_client_secret}\nakv_azure_tenant_id${akv_azure_tenant_id}"
       }
     }
   ],
