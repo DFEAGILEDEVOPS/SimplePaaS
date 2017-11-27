@@ -3,6 +3,8 @@ oc_project_name=$1
 echo oc_project_name=$oc_project_name
 oc_build_config_name=$2
 echo oc_build_config_name=$oc_build_config_name
+oc_environment=$3
+echo oc_environment
 
 # create the project
 ./oc new-project $oc_project_name
