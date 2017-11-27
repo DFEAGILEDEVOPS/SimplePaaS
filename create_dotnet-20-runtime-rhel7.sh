@@ -63,7 +63,6 @@ EOF
 # EOF
 
 ./oc process -f dotnet-20-runtime-rhel7.json \
-  -p secret_name=azure-secret \
   -p akv_vault_url=akv_vault_url2 \
   -p akv_vault_client_id=testclientid2 \
   -p akv_vault_client_secret=testclientsecret2 \
