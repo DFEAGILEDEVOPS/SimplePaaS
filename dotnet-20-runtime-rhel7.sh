@@ -30,7 +30,7 @@ exec "\$@"
 EOF
 
 chmod +x secret_entrypoint
-chgrp chgrp 0 secret_entrypoint
+chgrp 0 secret_entrypoint
 
 # Create the docker file
 cat > Dockerfile <<EOF
