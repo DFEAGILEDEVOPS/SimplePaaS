@@ -14,7 +14,7 @@
       "kind": "Secret",
       "apiVersion": "v1",
       "metadata": {
-        "name": "azure_key_vault",
+        "name": "azure-key-vault",
         "annotations": {
           "template.openshift.io/expose-akv_vault_url": "{.data['akv_vault_url']}",
           "template.openshift.io/expose-akv_vault_client_idd": "{.data['akv_vault_client_id']}",
