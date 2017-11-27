@@ -19,12 +19,25 @@ echo current location is `pwd`
 find . -name \*.zip
 INNER_ZIP=`find . -name \*.zip`
 echo INNER_ZIP=$INNER_ZIP
+
+# create the secret loader
+cat > secret_entrypoint<<EOF
+#!/bin/sh
+set -a                                                                                                                                                                
+. /etc/secret-volume/secret.properties
+set +a
+exec "$@"
+EOF
+
+chmod +x secret_entrypoint
+
 # Create the docker file
 cat > Dockerfile <<EOF
 FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
 
+ENTRYPOINT [ "secret_entrypoint" ]
 CMD ["dotnet", "$oc_entry_point"]
 EOF
 
