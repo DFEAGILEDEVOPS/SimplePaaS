@@ -37,10 +37,7 @@ FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
 
-ENV APP_ROOT=/opt/app-root/app
-ENV PATH=${APP_ROOT}:${PATH} HOME=${APP_ROOT}
-
-ENTRYPOINT [ "secret_entrypoint" ]
+ENTRYPOINT [ "/opt/app-root/app/secret_entrypoint" ]
 CMD ["dotnet", "$oc_entry_point"]
 EOF
 
