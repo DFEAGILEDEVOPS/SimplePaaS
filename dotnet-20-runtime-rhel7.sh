@@ -37,7 +37,7 @@ FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
 
-RUN chmod -R u+x /opt/app-root/app/secret_entrypoint && \
+RUN chmod -R ug+x /opt/app-root/app/secret_entrypoint && \
     chgrp -R 0 /opt/app-root/app
 
 ENTRYPOINT [ "/opt/app-root/app/secret_entrypoint" ]
