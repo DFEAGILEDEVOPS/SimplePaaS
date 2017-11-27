@@ -13,8 +13,10 @@ echo BUILD_BINARIESDIRECTORY=$BUILD_BINARIESDIRECTORY
 echo BUILD_BUILDID=$BUILD_BUILDID
 
 cd $BUILD_ARTIFACTSTAGINGDIRECTORY
+echo current location is `pwd`
+find . -name \*.zip
 INNER_ZIP=`find . -name \*.zip`
-
+echo INNER_ZIP=$INNER_ZIP
 # Create the docker file
 cat > Dockerfile <<EOF
 FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
