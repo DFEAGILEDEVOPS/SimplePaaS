@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # these are our openshift container platform args
 oc_project_name=$1
 oc_build_config_name=$2
@@ -27,7 +29,7 @@ echo akv_azure_tenant_id=$akv_azure_tenant_id
 
 # Download oc
 #curl -u $oc_nexus_credentials -O -k https://nexus.demo.dfe.secnix.co.uk/repository/dfe_admin/oc-3.6.173.0.49-linux.tar
-wget --quite -O oc.tar https://www.dropbox.com/s/ir3xms1m72p5lsh/oc-3.6.173.0.49-linux.tar?dl=0
+wget -O oc.tar https://www.dropbox.com/s/ir3xms1m72p5lsh/oc-3.6.173.0.49-linux.tar?dl=0
 tar xfv oc.tar
 
 echo ### LOGGING IN
