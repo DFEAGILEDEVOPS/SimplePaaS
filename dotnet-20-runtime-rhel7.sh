@@ -24,8 +24,8 @@ unzip $INNER_ZIP
 
 # create the secret loader
 cat > secret_entrypoint<<EOF
-#!/bin/sh
-set -a                                                                                                                                                                
+#!/bin/bash
+set -a                                                                                                                                                         
 . /etc/secret-volume/secret.properties
 set +a
 exec "\$@"
