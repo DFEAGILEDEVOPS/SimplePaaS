@@ -25,7 +25,7 @@ unzip $INNER_ZIP
 # create the secret loader
 cat > secret_entrypoint<<EOF
 #!/bin/bash
-eval $(cat /etc/secret-volume/secret.properties | sed 's/^/export /1')
+eval \$(cat /etc/secret-volume/secret.properties | sed 's/^/export /1')
 env | grep akv
 exec "\$@"
 EOF
