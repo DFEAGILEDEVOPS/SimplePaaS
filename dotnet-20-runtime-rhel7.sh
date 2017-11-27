@@ -22,7 +22,7 @@ echo INNER_ZIP=$INNER_ZIP
 
 mkdir -p /tmp/$BUILD_BUILDID
 cd /tmp/$BUILD_BUILDID
-unzip $INNER_ZIP
+unzip $BUILD_ARTIFACTSTAGINGDIRECTORY/$INNER_ZIP
 
 # create the secret loader
 cat > secret_entrypoint<<EOF
