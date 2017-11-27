@@ -62,4 +62,11 @@ EOF
 #     akv_azure_tenant_id=${akv_azure_tenant_id}
 # EOF
 
-./oc process -f dotnet-20-runtime-rhel7.json -p secret_name=azure-secret -p akv_vault_url=akv_vault_url2 -p akv_vault_client_id=testclientid2 -p akv_vault_client_secret=testclientsecret2 -p akv_azure_tenant_id=testtenantid2 | oc create -f -
+./oc process -f dotnet-20-runtime-rhel7.json \
+  -p secret_name=azure-secret \
+  -p akv_vault_url=akv_vault_url2 \
+  -p akv_vault_client_id=testclientid2 \
+  -p akv_vault_client_secret=testclientsecret2 \
+  -p akv_azure_tenant_id=testtenantid2 \
+| \
+./oc create -f -
