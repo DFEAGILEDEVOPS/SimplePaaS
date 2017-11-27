@@ -6,7 +6,7 @@ echo oc_openshift_credentials=$oc_openshift_credentials
 
 # Download oc
 #curl -u $oc_nexus_credentials -O -k https://nexus.demo.dfe.secnix.co.uk/repository/dfe_admin/oc-3.6.173.0.49-linux.tar
-wget -Onv oc.tar https://www.dropbox.com/s/ir3xms1m72p5lsh/oc-3.6.173.0.49-linux.tar?dl=0
+wget --quiet -O oc.tar https://www.dropbox.com/s/ir3xms1m72p5lsh/oc-3.6.173.0.49-linux.tar?dl=0
 tar xfv oc.tar
 
 echo ### LOGGING IN
