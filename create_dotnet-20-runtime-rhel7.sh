@@ -71,9 +71,9 @@ echo akv_vault_client_secret=$akv_vault_client_secret
 echo akv_azure_tenant_id=$akv_azure_tenant_id
 
 ./oc process -f dotnet-20-runtime-rhel7.json \
-  -p VaultUrl=$akv_vault_url \
-  -p VaultClientId=$akv_vault_client_id \
-  -p VaultClientSecret=$akv_vault_client_secret \
-  -p AzureTenantId=$akv_azure_tenant_id \
+  -p akv_vault_url=$akv_vault_url \
+  -p akv_vault_client_id=$akv_vault_client_id \
+  -p akv_vault_client_secret=$akv_vault_client_secret \
+  -p akv_azure_tenant_id=$akv_azure_tenant_id \
 | \
 ./oc create -f -
