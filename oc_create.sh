@@ -23,12 +23,6 @@ echo oc_project_name=$oc_project_name
 echo oc_build_config_name=$oc_build_config_name
 echo oc_runtime_image=$oc_runtime_image
 
-#echo out the azure key vault data
-echo akv_vault_url=$akv_vault_url
-echo akv_vault_client_id=$akv_vault_client_id
-echo akv_vault_client_secret=$akv_vault_client_secret
-echo akv_azure_tenant_id=$akv_azure_tenant_id
-
 echo oc_environment=$oc_environment
 
 # Download oc
