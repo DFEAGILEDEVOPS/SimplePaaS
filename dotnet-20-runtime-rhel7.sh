@@ -12,7 +12,7 @@ echo BUILD_ARTIFACTSTAGINGDIRECTORY=$BUILD_ARTIFACTSTAGINGDIRECTORY
 echo BUILD_BINARIESDIRECTORY=$BUILD_BINARIESDIRECTORY
 echo BUILD_BUILDID=$BUILD_BUILDID
 
-echo oc_environment=$oc_entry_point
+echo oc_environment=$oc_environment
 
 INNER_ZIP=`find $BUILD_ARTIFACTSTAGINGDIRECTORY -name \*.zip`
 echo INNER_ZIP=$INNER_ZIP
@@ -41,7 +41,7 @@ cat > Dockerfile <<EOF
 FROM registry.access.redhat.com/dotnet/dotnet-20-runtime-rhel7
 
 ADD . .
-
+ENV "ASPNETCORE_ENVIRONMENT" "$oc_environment"
 ENTRYPOINT [ "/opt/app-root/app/secret_entrypoint" ]
 CMD ["dotnet", "$oc_entry_point"]
 EOF
