@@ -26,7 +26,7 @@ unzip $INNER_ZIP
 cat > secret_entrypoint<<EOF
 #!/bin/bash
 eval \$(cat /etc/secret-volume/secret.properties | sed 's/^/export /1')
-env | grep akv
+env | grep Vault
 exec "\$@"
 EOF
 
